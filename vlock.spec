@@ -10,7 +10,7 @@ Summary(uk):	Закрива╓ одну чи б╕льше консолей в╕д несанкц╕онованого доступу
 Summary(zh_CN):	р╩╦Ждэ╧╩кЬ╤╗р╩╦Ж╩Р╤Ю╦ЖпИдБжу╤к╣дЁлпР
 Name:		vlock
 Version:	1.3
-Release:	12
+Release:	13
 License:	GPL
 Group:		Applications/Console
 Source0:	ftp://tsx-11.mit.edu:/pub/linux/sources/usr.bin/%{name}-%{version}.tar.gz

@@ -14,6 +14,7 @@ Release:	11
 License:	GPL
 Group:		Applications/Console
 Source0:	ftp://tsx-11.mit.edu:/pub/linux/sources/usr.bin/%{name}-%{version}.tar.gz
+# Source0-md5:	d04076f9c5f12aadc4d5fbbabf8a0c12
 Source1:	%{name}.pamd
 Patch0:		%{name}-rootpw.patch
 BuildRequires:	pam-devel >= 0.65

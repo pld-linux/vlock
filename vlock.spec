@@ -54,7 +54,7 @@ kullanýcýsýnýn parolasýnýn girilmesi gerekir.
 %setup -q
 
 %build
-%{__make} CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -DUSE_PAM"
+%{__make} CFLAGS="%{rpmcflags} -DUSE_PAM"
 
 %install
 rm -rf $RPM_BUILD_ROOT

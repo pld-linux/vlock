@@ -7,7 +7,7 @@ Summary(pt_BR):	Trava uma ou mais consoles virtuais
 Summary(ru):	Закрывает одну или больше консолей от несанкционированного доступа
 Summary(tr):	Sanal konsol kilitleme aracЩ
 Summary(uk):	Закрива╓ одну чи б╕льше консолей в╕д несанкц╕онованого доступу
-Summary(zh_CN):	р╩╦Ждэ╧╩кЬ╤╗р╩╦Ж╩Р╤Ю╦ЖпИдБжу╤к╣дЁлпР.
+Summary(zh_CN):	р╩╦Ждэ╧╩кЬ╤╗р╩╦Ж╩Р╤Ю╦ЖпИдБжу╤к╣дЁлпР
 Name:		vlock
 Version:	1.3
 Release:	11

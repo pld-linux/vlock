@@ -9,11 +9,12 @@ Summary(tr):	Sanal konsol kilitleme arac˝
 Summary(uk):	˙¡À“…◊¡§ œƒŒ’ ﬁ… ¬¶Ãÿ€≈ ÀœŒ”œÃ≈  ◊¶ƒ Œ≈”¡ŒÀ√¶œŒœ◊¡Œœ«œ ƒœ”‘’–’
 Name:		vlock
 Version:	1.3
-Release:	10
+Release:	11
 License:	GPL
 Group:		Applications/Console
 Source0:	ftp://tsx-11.mit.edu:/pub/linux/sources/usr.bin/%{name}-%{version}.tar.gz
 Source1:	%{name}.pamd
+Patch0:		%{name}-rootpw.patch
 BuildRequires:	pam-devel >= 0.65
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -22,7 +23,8 @@ vlock either locks the current terminal (which may be any kind of
 terminal, local or remote), or locks the entire virtual console
 system, completely disabling all console access. vlock gives up these
 locks when either the password of the user who started vlock or the
-root password is typed.
+root password is typed. Note: root password can unlock session only if
+vlock is setuid root (it isn't by default).
 
 %description -l de
 vlock sperrt entweder das aktuelle Terminal (lokal oder entfernt) oder
@@ -49,7 +51,9 @@ root, est entrÈ.
 Vlock blokuje bieø±cy terminal lub ca≥± konsolÍ systemu
 uniemoøliwiaj±c dostÍp do wszystkich wirtualnych terminali. Do
 odblokowania potrzebne jest has≥o uøytkownika, ktÛry uruchomi≥ vlock,
-albo administratora systemu (root-a).
+albo administratora systemu (root-a). Uwaga: odblokowaÊ terminal
+has≥em roota moøna tylko je∂li binarka vlock ma setuid root (domy∂lnie
+nie ma).
 
 %description -l pt_BR
 O vlock igualmente tranca o terminal corrente (que pode ser qualquer
@@ -82,6 +86,7 @@ vlock ¬ÃœÀ’§ ¡¬œ –œ‘œﬁŒ…  ‘≈“Õ¶Œ¡Ã (›œ Õœ÷≈ ¬’‘… ¬’ƒÿ-—Àœ«œ ‘…–’, —À
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} CFLAGS="%{rpmcflags} -DUSE_PAM"
@@ -94,15 +99,12 @@ install %{name} $RPM_BUILD_ROOT%{_bindir}
 install %{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/pam.d/%{name}
 
-gzip -9nf README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README
 %attr(644,root,root) %config(noreplace) %verify(not size mtime md5) /etc/pam.d/%{name}
-
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*

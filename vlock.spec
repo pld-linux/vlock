@@ -8,6 +8,7 @@ Version:	1.3
 Release:	5
 Copyright:	GPL
 Group:		Utilities/Console
+Group(pl):	Narzêdzia/Konsola
 Source:		ftp://tsx-11.mit.edu:/pub/linux/sources/usr.bin/%{name}-%{version}.tar.gz
 Requires:	pam >= 0.65
 Buildroot:	/tmp/%{name}-%{version}-root
@@ -66,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-%attr(640,root,root) %config /etc/pam.d/vlock
+%attr(644,root,root) %config /etc/pam.d/vlock
 
 %attr(755,root,root) /usr/bin/vlock
 /usr/man/man1/*

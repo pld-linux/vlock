@@ -1,7 +1,9 @@
 Summary:	locks one or more virtual consoles
 Summary(de):	sperrt eine oder mehrere virtuelle Konsolen
+Summary(es):	Bloquea una o más consolas virtuales
 Summary(fr):	verrouille une ou plusieurs consoles virtuelles
 Summary(pl):	Umo¿liwia zablokowanie dostêpu do terminala
+Summary(pt_BR):	Trava uma ou mais consoles virtuais
 Summary(tr):	Sanal konsol kilitleme aracý
 Name:		vlock
 Version:	1.3
@@ -27,6 +29,13 @@ deaktiviert wird. vlock gibt die Sperren frei, wenn entweder das
 Paßwort des Benutzers, der vlock gestartet hat, oder das Root- Paßwort
 eingegeben wird.
 
+%description -l es
+vlock igualmente cierra el terminal corriente (que puede ser cualquier
+tipo de terminal, local o remoto), como cierra el sistema entero de
+consola virtual, inhabilitando, por completo, todo el acceso a
+consola. vlock se inhabilita cuando se teclea la contraseña del
+usuario que la haya iniciado o con la contraseña del root.
+
 %description -l fr
 vlock verrouille soit le terminal courant (qui peut être de tout type,
 local ou distant), soit le système entier des consoles virtuelles,
@@ -39,6 +48,13 @@ Vlock blokuje bie¿±cy terminal lub ca³± konsolê systemu
 uniemo¿liwiaj±c dostêp do wszystkich wirtualnych terminali. Do
 odblokowania potrzebne jest has³o u¿ytkownika, który uruchomi³ vlock,
 albo administratora systemu (root-a).
+
+%description -l pt_BR
+O vlock igualmente tranca o terminal corrente (que pode ser qualquer
+tipo de terminal, local ou remoto), ou tranca o sistema inteiro de
+console virtual, desabilitando completamente todo o acesso ao console.
+O vlock é desabilitado quando a senha do usuário que o iniciou ou a
+senha do root é digitada.
 
 %description -l tr
 vlock kullanýcýnýn kullanmakta olduðu terminali kilitlemesini saðlar.

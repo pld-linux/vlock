@@ -5,7 +5,7 @@ Summary(pl): Umo¿liwia zablokowanie dostêpu do terminala
 Summary(tr): Sanal konsol kilitleme aracý
 Name:        vlock
 Version:     1.2
-Release:     2
+Release:     3
 Copyright:   GPL
 Group:       Utilities/Console
 Source:      ftp://tsx-11.mit.edu:/pub/linux/sources/usr.bin/%{name}-%{version}.tar.gz

@@ -11,7 +11,7 @@ Group:		Utilities/Console
 Group(pl):	Narzêdzia/Konsola
 Source:		ftp://tsx-11.mit.edu:/pub/linux/sources/usr.bin/%{name}-%{version}.tar.gz
 Requires:	pam >= 0.65
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 vlock either locks the current terminal (which may be any kind of terminal,

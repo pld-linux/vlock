@@ -1,5 +1,5 @@
 Summary:	locks one or more virtual consoles
-Summary(de):	sperrt eine oder mehrere virtuelle Konsolen 
+Summary(de):	sperrt eine oder mehrere virtuelle Konsolen
 Summary(fr):	verrouille une ou plusieurs consoles virtuelles
 Summary(pl):	Umo¿liwia zablokowanie dostêpu do terminala
 Summary(tr):	Sanal konsol kilitleme aracý

@@ -55,10 +55,10 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{usr/{bin,man/man1},etc/pam.d}
 
 install -s vlock $RPM_BUILD_ROOT/usr/bin
-install vlock.1 $RPM_BUILD_ROOT/usr/man/man1
+install vlock.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install vlock.pamd $RPM_BUILD_ROOT/etc/pam.d/vlock
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/* \
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	README
 
 %clean
@@ -70,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644,root,root) %config /etc/pam.d/vlock
 
 %attr(755,root,root) /usr/bin/vlock
-/usr/man/man1/*
+%{_mandir}/man1/*
 
 %changelog
 * Sun Apr 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>

@@ -1,7 +1,7 @@
-Summary:	locks one or more virtual consoles
-Summary(de):	sperrt eine oder mehrere virtuelle Konsolen
+Summary:	Locks one or more virtual consoles
+Summary(de):	Sperrt eine oder mehrere virtuelle Konsolen
 Summary(es):	Bloquea una o más consolas virtuales
-Summary(fr):	verrouille une ou plusieurs consoles virtuelles
+Summary(fr):	Verrouille une ou plusieurs consoles virtuelles
 Summary(pl):	Umo¿liwia zablokowanie dostêpu do terminala
 Summary(pt_BR):	Trava uma ou mais consoles virtuais
 Summary(ru):	úÁËÒÙ×ÁÅÔ ÏÄÎÕ ÉÌÉ ÂÏÌØÛÅ ËÏÎÓÏÌÅÊ ÏÔ ÎÅÓÁÎËÃÉÏÎÉÒÏ×ÁÎÎÏÇÏ ÄÏÓÔÕĞÁ
@@ -50,7 +50,7 @@ lorsque le mot de passe de l'utilisateur qui l'a lancé, ou celui de
 root, est entré.
 
 %description -l pl
-Vlock blokuje bie¿±cy terminal lub ca³± konsolê systemu
+vlock blokuje bie¿±cy terminal lub ca³± konsolê systemu
 uniemo¿liwiaj±c dostêp do wszystkich wirtualnych terminali. Do
 odblokowania potrzebne jest has³o u¿ytkownika, który uruchomi³ vlock,
 albo administratora systemu (root-a). Uwaga: odblokowaæ terminal

@@ -4,7 +4,9 @@ Summary(es):	Bloquea una o mАs consolas virtuales
 Summary(fr):	verrouille une ou plusieurs consoles virtuelles
 Summary(pl):	Umo©liwia zablokowanie dostЙpu do terminala
 Summary(pt_BR):	Trava uma ou mais consoles virtuais
+Summary(ru):	Закрывает одну или больше консолей от несанкционированного доступа
 Summary(tr):	Sanal konsol kilitleme aracЩ
+Summary(uk):	Закрива╓ одну чи б╕льше консолей в╕д несанкц╕онованого доступу
 Name:		vlock
 Version:	1.3
 Release:	10
@@ -56,6 +58,13 @@ console virtual, desabilitando completamente todo o acesso ao console.
 O vlock И desabilitado quando a senha do usuАrio que o iniciou ou a
 senha do root И digitada.
 
+%description -l ru
+vlock блокирует текущий терминал (который может быть любого типа, как
+локальный, так и удаленный) или всю систему виртуальных консолей,
+полностью блокируя таким образом любой доступ с консоли. Разблокировка
+производится путем ввода пароля пользователя, запустившего vlock, или
+пароля root.
+
 %description -l tr
 vlock kullanЩcЩnЩn kullanmakta olduПu terminali kilitlemesini saПlar.
 Bu terminal yerel bir terminal ya da uzaktan eriЧilmiЧ bir terminal
@@ -63,6 +72,13 @@ olabilir. DiПer bir seГenek de bЭtЭn sanal konsol sistemini
 kilitleyerek her tЭrlЭ konsol eriЧimini kapatmaktЩr. Konsolun
 kilidinin aГЩlmasЩ iГin ya kilitleyen kullanЩcЩnЩn ya da root
 kullanЩcЩsЩnЩn parolasЩnЩn girilmesi gerekir.
+
+%description -l uk
+vlock блоку╓ або поточний терм╕нал (що може бути будь-якого типу, як
+локальний, так ╕ в╕ддалений) або всю систему в╕ртуальних консолей,
+повн╕стю блокуючи таким чином будь-який доступ з консол╕.
+Розблокування в╕дбува╓ться шляхом вводу пароля користувача, що
+запустив vlock, чи пароля root.
 
 %prep
 %setup -q

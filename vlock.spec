@@ -5,11 +5,12 @@ Summary(pl):	Umo¿liwia zablokowanie dostêpu do terminala
 Summary(tr):	Sanal konsol kilitleme aracý
 Name:		vlock
 Version:	1.3
-Release:	6
+Release:	7
 License:	GPL
 Group:		Utilities/Console
 Group(pl):	Narzêdzia/Konsola
 Source0:	ftp://tsx-11.mit.edu:/pub/linux/sources/usr.bin/%{name}-%{version}.tar.gz
+Source1:	%{name}.pamd
 Requires:	pam >= 0.65
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -60,7 +61,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,/etc/pam.d}
 
 install -s %{name} $RPM_BUILD_ROOT%{_bindir}
 install %{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install %{name}.pamd $RPM_BUILD_ROOT/etc/pam.d/%{name}
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/pam.d/%{name}
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	README

@@ -5,7 +5,7 @@ Summary(pl):	Umo¿liwia zablokowanie dostêpu do terminala
 Summary(tr):	Sanal konsol kilitleme aracý
 Name:		vlock
 Version:	1.3
-Release:	5
+Release:	6
 Copyright:	GPL
 Group:		Utilities/Console
 Group(pl):	Narzêdzia/Konsola
@@ -52,11 +52,11 @@ make CFLAGS="$RPM_OPT_FLAGS -DUSE_PAM"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{usr/{bin,man/man1},etc/pam.d}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,/etc/pam.d}
 
-install -s vlock $RPM_BUILD_ROOT%{_bindir}
-install vlock.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install vlock.pamd $RPM_BUILD_ROOT/etc/pam.d/vlock
+install -s %{name} $RPM_BUILD_ROOT%{_bindir}
+install %{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
+install %{name}.pamd $RPM_BUILD_ROOT/etc/pam.d/%{name}
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	README
@@ -67,36 +67,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-%attr(644,root,root) %config /etc/pam.d/vlock
+%attr(644,root,root) %config /etc/pam.d/%{name}
 
-%attr(755,root,root) %{_bindir}/vlock
+%attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*
 
 %changelog
-* Sun Apr 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.3-5]
-- recompiled on new rpm.
-
-* Fri Sep 18 1998 Marcin Korzonek <mkorz@shadow.eu.org>
-- translations modified for pl
-- build against glibc 2.1
-- changed files permission
-
-* Mon May 04 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Thu Mar 12 1998 Michael K. Johnson <johnsonm@redhat.com>
-- Does not create a DoS attack if pty is closed (not applicable
-  to use on a VC)
-
-* Fri Oct 10 1997 Michael K. Johnson <johnsonm@redhat.com>
-- Moved to new pam conventions.
-- Use pam according to spec, rather than abusing it as before.
-- Updated to version 1.1.
-- BuildRoot
-
-* Mon Jul 21 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
-
-* Mon Mar 03 1997 Michael K. Johnson <johnsonm@redhat.com>
-- moved from pam.conf to pam.d
+* Fri May 21 1999 Piotr Czerwiñski <pius@pld.org.pl> 
+  [1.3-6]
+- package is FHS 2.0 compliant,
+- spec file based on RH version; rewritten for PLD use
+  by Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  and Marcin Korzonek <mkorz@shadow.eu.org>.

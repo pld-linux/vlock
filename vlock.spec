@@ -17,7 +17,8 @@ Source0:	ftp://tsx-11.mit.edu:/pub/linux/sources/usr.bin/%{name}-%{version}.tar.
 # Source0-md5:	d04076f9c5f12aadc4d5fbbabf8a0c12
 Source1:	%{name}.pamd
 Patch0:		%{name}-rootpw.patch
-BuildRequires:	pam-devel >= 0.65
+BuildRequires:	pam-devel >= 0.77.3
+Requires:	pam >= 0.77.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

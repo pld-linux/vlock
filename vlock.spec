@@ -48,7 +48,7 @@ kullanýcýnýn ya da root kullanýcýsýnýn parolasýnýn girilmesi gerekir.
 %setup -q
 
 %build
-make CFLAGS="$RPM_OPT_FLAGS -DUSE_PAM"
+%{__make} CFLAGS="$RPM_OPT_FLAGS -DUSE_PAM"
 
 %install
 rm -rf $RPM_BUILD_ROOT

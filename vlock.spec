@@ -67,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz
-%attr(644,root,root) %config /etc/pam.d/%{name}
+%attr(644,root,root) %config %verify(not size mtime md5) /etc/pam.d/%{name}
 
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*

@@ -8,8 +8,6 @@ Version:	1.3
 Release:	10
 License:	GPL
 Group:		Applications/Console
-Group(de):	Applikationen/Konsole
-Group(pl):	Aplikacje/Konsola
 Source0:	ftp://tsx-11.mit.edu:/pub/linux/sources/usr.bin/%{name}-%{version}.tar.gz
 Source1:	%{name}.pamd
 BuildRequires:	pam-devel >= 0.65

@@ -54,7 +54,7 @@ make CFLAGS="$RPM_OPT_FLAGS -DUSE_PAM"
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{usr/{bin,man/man1},etc/pam.d}
 
-install -s vlock $RPM_BUILD_ROOT/usr/bin
+install -s vlock $RPM_BUILD_ROOT%{_bindir}
 install vlock.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install vlock.pamd $RPM_BUILD_ROOT/etc/pam.d/vlock
 
@@ -69,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(644,root,root) %config /etc/pam.d/vlock
 
-%attr(755,root,root) /usr/bin/vlock
+%attr(755,root,root) %{_bindir}/vlock
 %{_mandir}/man1/*
 
 %changelog

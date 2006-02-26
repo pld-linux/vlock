@@ -92,7 +92,9 @@ vlock блоку╓ або поточний терм╕нал (що може бути будь-якого типу, як
 %patch0 -p1
 
 %build
-%{__make} CFLAGS="%{rpmcflags} -DUSE_PAM"
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags} -DUSE_PAM"
 
 %install
 rm -rf $RPM_BUILD_ROOT

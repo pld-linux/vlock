@@ -110,6 +110,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README
-%attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/%{name}
+%config(noreplace) %verify(not md5 mtime size) /etc/pam.d/%{name}
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*

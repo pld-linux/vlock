@@ -1,13 +1,13 @@
 Summary:	Locks one or more virtual consoles
-Summary(de):	Sperrt eine oder mehrere virtuelle Konsolen
-Summary(es):	Bloquea una o mАs consolas virtuales
-Summary(fr):	Verrouille une ou plusieurs consoles virtuelles
-Summary(pl):	Umo©liwia zablokowanie dostЙpu do terminala
-Summary(pt_BR):	Trava uma ou mais consoles virtuais
-Summary(ru):	Закрывает одну или больше консолей от несанкционированного доступа
-Summary(tr):	Sanal konsol kilitleme aracЩ
-Summary(uk):	Закрива╓ одну чи б╕льше консолей в╕д несанкц╕онованого доступу
-Summary(zh_CN):	р╩╦Ждэ╧╩кЬ╤╗р╩╦Ж╩Р╤Ю╦ЖпИдБжу╤к╣дЁлпР
+Summary(de.UTF-8):   Sperrt eine oder mehrere virtuelle Konsolen
+Summary(es.UTF-8):   Bloquea una o mц║s consolas virtuales
+Summary(fr.UTF-8):   Verrouille une ou plusieurs consoles virtuelles
+Summary(pl.UTF-8):   Umoе╪liwia zablokowanie dostд≥pu do terminala
+Summary(pt_BR.UTF-8):   Trava uma ou mais consoles virtuais
+Summary(ru.UTF-8):   п≈п╟п╨я─я▀п╡п╟п╣я┌ п╬п╢п╫я┐ п╦п╩п╦ п╠п╬п╩я▄я┬п╣ п╨п╬п╫я│п╬п╩п╣п╧ п╬я┌ п╫п╣я│п╟п╫п╨я├п╦п╬п╫п╦я─п╬п╡п╟п╫п╫п╬пЁп╬ п╢п╬я│я┌я┐п©п╟
+Summary(tr.UTF-8):   Sanal konsol kilitleme aracд╠
+Summary(uk.UTF-8):   п≈п╟п╨я─п╦п╡п╟я■ п╬п╢п╫я┐ я┤п╦ п╠я√п╩я▄я┬п╣ п╨п╬п╫я│п╬п╩п╣п╧ п╡я√п╢ п╫п╣я│п╟п╫п╨я├я√п╬п╫п╬п╡п╟п╫п╬пЁп╬ п╢п╬я│я┌я┐п©я┐
+Summary(zh_CN.UTF-8):   Д╦─Д╦╙Х┐╫Е╓÷И■│Е╝ Д╦─Д╦╙Ф┬√Е╓ Д╦╙Х≥ Ф▀÷Г╩┬Г╚╞Г └Г╗▀Е╨▐
 Name:		vlock
 Version:	1.3
 Release:	13
@@ -30,63 +30,63 @@ locks when either the password of the user who started vlock or the
 root password is typed. Note: root password can unlock session only if
 vlock is setuid root (it isn't by default).
 
-%description -l de
+%description -l de.UTF-8
 vlock sperrt entweder das aktuelle Terminal (lokal oder entfernt) oder
-das gesamte virtuelle Konsolensystem, wobei der Konsolenzugriff vЖllig
+das gesamte virtuelle Konsolensystem, wobei der Konsolenzugriff vц╤llig
 deaktiviert wird. vlock gibt die Sperren frei, wenn entweder das
-Paъwort des Benutzers, der vlock gestartet hat, oder das Root- Paъwort
+Paц÷wort des Benutzers, der vlock gestartet hat, oder das Root- Paц÷wort
 eingegeben wird.
 
-%description -l es
+%description -l es.UTF-8
 vlock igualmente cierra el terminal corriente (que puede ser cualquier
 tipo de terminal, local o remoto), como cierra el sistema entero de
 consola virtual, inhabilitando, por completo, todo el acceso a
-consola. vlock se inhabilita cuando se teclea la contraseЯa del
-usuario que la haya iniciado o con la contraseЯa del root.
+consola. vlock se inhabilita cuando se teclea la contraseц╠a del
+usuario que la haya iniciado o con la contraseц╠a del root.
 
-%description -l fr
-vlock verrouille soit le terminal courant (qui peut Йtre de tout type,
-local ou distant), soit le systХme entier des consoles virtuelles,
-dИsactivant ainsi tout accХs aux consoles. vlock dИfait ces verrous
-lorsque le mot de passe de l'utilisateur qui l'a lancИ, ou celui de
-root, est entrИ.
+%description -l fr.UTF-8
+vlock verrouille soit le terminal courant (qui peut ц╙tre de tout type,
+local ou distant), soit le systц╗me entier des consoles virtuelles,
+dц╘sactivant ainsi tout accц╗s aux consoles. vlock dц╘fait ces verrous
+lorsque le mot de passe de l'utilisateur qui l'a lancц╘, ou celui de
+root, est entrц╘.
 
-%description -l pl
-vlock blokuje bie©╠cy terminal lub caЁ╠ konsolЙ systemu
-uniemo©liwiaj╠c dostЙp do wszystkich wirtualnych terminali. Do
-odblokowania potrzebne jest hasЁo u©ytkownika, ktСry uruchomiЁ vlock,
-albo administratora systemu (root-a). Uwaga: odblokowaФ terminal
-hasЁem roota mo©na tylko je╤li binarka vlock ma setuid root (domy╤lnie
+%description -l pl.UTF-8
+vlock blokuje bieе╪д┘cy terminal lub caе┌д┘ konsolд≥ systemu
+uniemoе╪liwiajд┘c dostд≥p do wszystkich wirtualnych terminali. Do
+odblokowania potrzebne jest hasе┌o uе╪ytkownika, ktцЁry uruchomiе┌ vlock,
+albo administratora systemu (root-a). Uwaga: odblokowaд┤ terminal
+hasе┌em roota moе╪na tylko jeе⌡li binarka vlock ma setuid root (domyе⌡lnie
 nie ma).
 
-%description -l pt_BR
+%description -l pt_BR.UTF-8
 O vlock igualmente tranca o terminal corrente (que pode ser qualquer
 tipo de terminal, local ou remoto), ou tranca o sistema inteiro de
 console virtual, desabilitando completamente todo o acesso ao console.
-O vlock И desabilitado quando a senha do usuАrio que o iniciou ou a
-senha do root И digitada.
+O vlock ц╘ desabilitado quando a senha do usuц║rio que o iniciou ou a
+senha do root ц╘ digitada.
 
-%description -l ru
-vlock блокирует текущий терминал (который может быть любого типа, как
-локальный, так и удаленный) или всю систему виртуальных консолей,
-полностью блокируя таким образом любой доступ с консоли. Разблокировка
-производится путем ввода пароля пользователя, запустившего vlock, или
-пароля root.
+%description -l ru.UTF-8
+vlock п╠п╩п╬п╨п╦я─я┐п╣я┌ я┌п╣п╨я┐я┴п╦п╧ я┌п╣я─п╪п╦п╫п╟п╩ (п╨п╬я┌п╬я─я▀п╧ п╪п╬п╤п╣я┌ п╠я▀я┌я▄ п╩я▌п╠п╬пЁп╬ я┌п╦п©п╟, п╨п╟п╨
+п╩п╬п╨п╟п╩я▄п╫я▀п╧, я┌п╟п╨ п╦ я┐п╢п╟п╩п╣п╫п╫я▀п╧) п╦п╩п╦ п╡я│я▌ я│п╦я│я┌п╣п╪я┐ п╡п╦я─я┌я┐п╟п╩я▄п╫я▀я┘ п╨п╬п╫я│п╬п╩п╣п╧,
+п©п╬п╩п╫п╬я│я┌я▄я▌ п╠п╩п╬п╨п╦я─я┐я▐ я┌п╟п╨п╦п╪ п╬п╠я─п╟п╥п╬п╪ п╩я▌п╠п╬п╧ п╢п╬я│я┌я┐п© я│ п╨п╬п╫я│п╬п╩п╦. п═п╟п╥п╠п╩п╬п╨п╦я─п╬п╡п╨п╟
+п©я─п╬п╦п╥п╡п╬п╢п╦я┌я│я▐ п©я┐я┌п╣п╪ п╡п╡п╬п╢п╟ п©п╟я─п╬п╩я▐ п©п╬п╩я▄п╥п╬п╡п╟я┌п╣п╩я▐, п╥п╟п©я┐я│я┌п╦п╡я┬п╣пЁп╬ vlock, п╦п╩п╦
+п©п╟я─п╬п╩я▐ root.
 
-%description -l tr
-vlock kullanЩcЩnЩn kullanmakta olduПu terminali kilitlemesini saПlar.
-Bu terminal yerel bir terminal ya da uzaktan eriЧilmiЧ bir terminal
-olabilir. DiПer bir seГenek de bЭtЭn sanal konsol sistemini
-kilitleyerek her tЭrlЭ konsol eriЧimini kapatmaktЩr. Konsolun
-kilidinin aГЩlmasЩ iГin ya kilitleyen kullanЩcЩnЩn ya da root
-kullanЩcЩsЩnЩn parolasЩnЩn girilmesi gerekir.
+%description -l tr.UTF-8
+vlock kullanд╠cд╠nд╠n kullanmakta olduд÷u terminali kilitlemesini saд÷lar.
+Bu terminal yerel bir terminal ya da uzaktan eriе÷ilmiе÷ bir terminal
+olabilir. Diд÷er bir seц╖enek de bц╪tц╪n sanal konsol sistemini
+kilitleyerek her tц╪rlц╪ konsol eriе÷imini kapatmaktд╠r. Konsolun
+kilidinin aц╖д╠lmasд╠ iц╖in ya kilitleyen kullanд╠cд╠nд╠n ya da root
+kullanд╠cд╠sд╠nд╠n parolasд╠nд╠n girilmesi gerekir.
 
-%description -l uk
-vlock блоку╓ або поточний терм╕нал (що може бути будь-якого типу, як
-локальний, так ╕ в╕ддалений) або всю систему в╕ртуальних консолей,
-повн╕стю блокуючи таким чином будь-який доступ з консол╕.
-Розблокування в╕дбува╓ться шляхом вводу пароля користувача, що
-запустив vlock, чи пароля root.
+%description -l uk.UTF-8
+vlock п╠п╩п╬п╨я┐я■ п╟п╠п╬ п©п╬я┌п╬я┤п╫п╦п╧ я┌п╣я─п╪я√п╫п╟п╩ (я┴п╬ п╪п╬п╤п╣ п╠я┐я┌п╦ п╠я┐п╢я▄-я▐п╨п╬пЁп╬ я┌п╦п©я┐, я▐п╨
+п╩п╬п╨п╟п╩я▄п╫п╦п╧, я┌п╟п╨ я√ п╡я√п╢п╢п╟п╩п╣п╫п╦п╧) п╟п╠п╬ п╡я│я▌ я│п╦я│я┌п╣п╪я┐ п╡я√я─я┌я┐п╟п╩я▄п╫п╦я┘ п╨п╬п╫я│п╬п╩п╣п╧,
+п©п╬п╡п╫я√я│я┌я▌ п╠п╩п╬п╨я┐я▌я┤п╦ я┌п╟п╨п╦п╪ я┤п╦п╫п╬п╪ п╠я┐п╢я▄-я▐п╨п╦п╧ п╢п╬я│я┌я┐п© п╥ п╨п╬п╫я│п╬п╩я√.
+п═п╬п╥п╠п╩п╬п╨я┐п╡п╟п╫п╫я▐ п╡я√п╢п╠я┐п╡п╟я■я┌я▄я│я▐ я┬п╩я▐я┘п╬п╪ п╡п╡п╬п╢я┐ п©п╟я─п╬п╩я▐ п╨п╬я─п╦я│я┌я┐п╡п╟я┤п╟, я┴п╬
+п╥п╟п©я┐я│я┌п╦п╡ vlock, я┤п╦ п©п╟я─п╬п╩я▐ root.
 
 %prep
 %setup -q

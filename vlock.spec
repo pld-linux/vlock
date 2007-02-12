@@ -1,13 +1,13 @@
 Summary:	Locks one or more virtual consoles
-Summary(de.UTF-8):   Sperrt eine oder mehrere virtuelle Konsolen
-Summary(es.UTF-8):   Bloquea una o más consolas virtuales
-Summary(fr.UTF-8):   Verrouille une ou plusieurs consoles virtuelles
-Summary(pl.UTF-8):   Umożliwia zablokowanie dostępu do terminala
-Summary(pt_BR.UTF-8):   Trava uma ou mais consoles virtuais
-Summary(ru.UTF-8):   Закрывает одну или больше консолей от несанкционированного доступа
-Summary(tr.UTF-8):   Sanal konsol kilitleme aracı
-Summary(uk.UTF-8):   Закриває одну чи більше консолей від несанкціонованого доступу
-Summary(zh_CN.UTF-8):   一个能够锁定一个或多个虚拟终端的程序
+Summary(de.UTF-8):	Sperrt eine oder mehrere virtuelle Konsolen
+Summary(es.UTF-8):	Bloquea una o más consolas virtuales
+Summary(fr.UTF-8):	Verrouille une ou plusieurs consoles virtuelles
+Summary(pl.UTF-8):	Umożliwia zablokowanie dostępu do terminala
+Summary(pt_BR.UTF-8):	Trava uma ou mais consoles virtuais
+Summary(ru.UTF-8):	Закрывает одну или больше консолей от несанкционированного доступа
+Summary(tr.UTF-8):	Sanal konsol kilitleme aracı
+Summary(uk.UTF-8):	Закриває одну чи більше консолей від несанкціонованого доступу
+Summary(zh_CN.UTF-8):	一个能够锁定一个或多个虚拟终端的程序
 Name:		vlock
 Version:	1.3
 Release:	13

@@ -9,15 +9,16 @@ Summary(tr.UTF-8):	Sanal konsol kilitleme aracı
 Summary(uk.UTF-8):	Закриває одну чи більше консолей від несанкціонованого доступу
 Summary(zh_CN.UTF-8):	一个能够锁定一个或多个虚拟终端的程序
 Name:		vlock
-Version:	1.3
-Release:	13
+Version:	1.4
+Release:	1
 License:	GPL
 Group:		Applications/Console
-Source0:	ftp://tsx-11.mit.edu:/pub/linux/sources/usr.bin/%{name}-%{version}.tar.gz
-# Source0-md5:	d04076f9c5f12aadc4d5fbbabf8a0c12
+Source0:	http://cthulhu.c3d2.de/~toidinamai/vlock/archive/%{name}-%{version}.tar.gz
+# Source0-md5:	e681cf1ae3ee0619b1183da401e3829b
 Source1:	%{name}.pamd
 Patch0:		%{name}-rootpw.patch
 Patch1:		%{name}-linking.patch
+URL:		http://cthulhu.c3d2.de/~toidinamai/vlock/vlock.html
 BuildRequires:	pam-devel >= 0.77.3
 Requires:	pam >= 0.77.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

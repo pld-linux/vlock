@@ -1,17 +1,33 @@
-diff -Nur vlock-1.3/Makefile vlock-1.3.linking/Makefile
---- vlock-1.3/Makefile	1999-01-14 01:19:14.000000000 +0100
-+++ vlock-1.3.linking/Makefile	2006-08-03 01:57:40.000000000 +0200
-@@ -4,11 +4,12 @@
- # remove the -DUSE_PAM, -ldl, and -lpam if you aren't using PAM
- RPM_OPT_FLAGS=-O2
- CFLAGS = $(RPM_OPT_FLAGS) -DUSE_PAM
--LDFLAGS = -ldl -lpam -lpam_misc
-+LIBS = -ldl -lpam -lpam_misc
+diff -Nur vlock-1.4/config.mk n.vlock-1.4/config.mk
+--- vlock-1.4/config.mk	2007-05-23 10:31:58.000000000 +0200
++++ n.vlock-1.4/config.mk	2007-07-26 22:26:55.000000000 +0200
+@@ -2,6 +2,7 @@
+ USE_PAM = y
+ USE_ROOT_PASS = y
+ PREFIX = /usr/local
++MANDIR = $(PREFIX)/share/man
+ DESTDIR =
  
- OBJS = vlock.o signals.o help.o terminal.o input.o
+ CC = gcc
+@@ -14,8 +15,8 @@
+ 
+ ifeq ($(USE_PAM),y)
+ 	CFLAGS += -DUSE_PAM
+-	LDFLAGS += -ldl -lpam -lpam_misc
++	LIBS += -ldl -lpam -lpam_misc
+ else
+ 	CFLAGS += -DSHADOW_PWD
+-	LDFLAGS += -lcrypt
++	LIBS += -lcrypt
+ endif
+diff -Nur vlock-1.4/Makefile n.vlock-1.4/Makefile
+--- vlock-1.4/Makefile	2007-05-23 10:31:58.000000000 +0200
++++ n.vlock-1.4/Makefile	2007-07-26 22:29:18.000000000 +0200
+@@ -5,6 +5,7 @@
+ OBJS = vlock.o signals.o help.o terminal.o input.o sysrq.o
  
  vlock: $(OBJS)
-+	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
++	$(CC) $(LDFLAGS) -o $@ $^ $(LIBS)
  
  vlock.man: vlock.1
- 	groff -man -Tascii vlock.1 > vlock.man
+ 	groff -man -Tascii $< > $@

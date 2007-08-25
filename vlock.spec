@@ -9,12 +9,12 @@ Summary(tr.UTF-8):	Sanal konsol kilitleme aracı
 Summary(uk.UTF-8):	Закриває одну чи більше консолей від несанкціонованого доступу
 Summary(zh_CN.UTF-8):	一个能够锁定一个或多个虚拟终端的程序
 Name:		vlock
-Version:	1.4
-Release:	2
-License:	GPL
+Version:	2.0
+Release:	1
+License:	GPL v2
 Group:		Applications/Console
-Source0:	http://cthulhu.c3d2.de/~toidinamai/vlock/archive/%{name}-%{version}.tar.gz
-# Source0-md5:	e681cf1ae3ee0619b1183da401e3829b
+Source0:	http://cthulhu.c3d2.de/~toidinamai/vlock/archive/%{name}-%{version}.tar.bz2
+# Source0-md5:	3937c3060d495cb7d0d0fcf7778741bc
 Source1:	%{name}.pamd
 Patch0:		%{name}-rootpw.patch
 Patch1:		%{name}-linking.patch
@@ -98,14 +98,18 @@ vlock блокує або поточний термінал (що може бу�
 %{__make} \
 	CC="%{__cc}" \
 	LDFLAGS="%{rpmldflags}" \
-	CFLAGS="%{rpmcflags} -DUSE_PAM"
+	CFLAGS="%{rpmcflags}" \
+	AUTH_METHOD=pam \
+	PREFIX=/usr
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,/etc/pam.d}
+install -d $RPM_BUILD_ROOT/etc/pam.d
 
-install %{name} $RPM_BUILD_ROOT%{_bindir}
-install %{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	PREFIX=/usr
+
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/pam.d/%{name}
 
 %clean
@@ -113,7 +117,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README
+%doc ChangeLog README SECURITY
 %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/%{name}
-%attr(755,root,root) %{_bindir}/%{name}
-%{_mandir}/man1/*
+%attr(755,root,root) %{_bindir}/vlock
+%attr(755,root,root) %{_sbindir}/vlock-all
+# needs suid root to support unlock by root password
+%attr(755,root,root) %verify(not mode) %{_sbindir}/vlock-current
+# two following need suid root to function, but should be limited to trusted users
+%attr(755,root,root) %verify(not mode) %{_sbindir}/vlock-new
+%attr(755,root,root) %verify(not mode) %{_sbindir}/vlock-nosysrq
+%{_mandir}/man1/vlock.1*
+%{_mandir}/man8/vlock-*.8*

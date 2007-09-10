@@ -1,5 +1,5 @@
---- vlock-2.0/Makefile.orig	2007-08-09 09:28:55.000000000 +0200
-+++ vlock-2.0/Makefile	2007-08-25 21:11:50.749730797 +0200
+--- vlock-2.1/Makefile.orig	2007-09-08 20:04:25.000000000 +0200
++++ vlock-2.1/Makefile	2007-09-10 20:05:57.890956628 +0200
 @@ -32,19 +32,17 @@
  endif
  
@@ -13,7 +13,7 @@
 +vlock-current : override LIBS += -lcrypt
  endif
  
- vlock-current: vlock-current.c auth-$(AUTH_METHOD).c
+ vlock-current: vlock-current.c prompt.c auth-$(AUTH_METHOD).c
  
 -ifeq ($(USE_PAM),y)
 -vlock-nosysrq vlock-all : override LDFLAGS += $(PAM_LIBS)
@@ -28,29 +28,29 @@
  
  .PHONY: install-programs
  install-programs: $(PROGRAMS)
--	$(INSTALL) -D -m 755 -o root -g root vlock $(DESTDIR)$(PREFIX)/bin/vlock
--	$(INSTALL) -D -m 4711 -o root -g root vlock-current $(DESTDIR)$(PREFIX)/sbin/vlock-current
--	$(INSTALL) -D -m 755 -o root -g root vlock-all $(DESTDIR)$(PREFIX)/sbin/vlock-all
+-	$(INSTALL) -D -m 755 -o root -g $(ROOT_GROUP) vlock $(DESTDIR)$(PREFIX)/bin/vlock
+-	$(INSTALL) -D -m 4711 -o root -g $(ROOT_GROUP) vlock-current $(DESTDIR)$(PREFIX)/sbin/vlock-current
+-	$(INSTALL) -D -m 755 -o root -g $(ROOT_GROUP) vlock-all $(DESTDIR)$(PREFIX)/sbin/vlock-all
 -	$(INSTALL) -D -m $(VLOCK_MODE) -o root -g $(VLOCK_GROUP) vlock-nosysrq $(DESTDIR)$(PREFIX)/sbin/vlock-nosysrq
 -	$(INSTALL) -D -m $(VLOCK_MODE) -o root -g $(VLOCK_GROUP) vlock-new $(DESTDIR)$(PREFIX)/sbin/vlock-new
 +	$(INSTALL) -D -m 755 vlock $(DESTDIR)$(PREFIX)/bin/vlock
-+	$(INSTALL) -D -m 4755 vlock-current $(DESTDIR)$(PREFIX)/sbin/vlock-current
++	$(INSTALL) -D -m 755 vlock-current $(DESTDIR)$(PREFIX)/sbin/vlock-current
 +	$(INSTALL) -D -m 755 vlock-all $(DESTDIR)$(PREFIX)/sbin/vlock-all
 +	$(INSTALL) -D -m $(VLOCK_MODE) vlock-nosysrq $(DESTDIR)$(PREFIX)/sbin/vlock-nosysrq
 +	$(INSTALL) -D -m $(VLOCK_MODE) vlock-new $(DESTDIR)$(PREFIX)/sbin/vlock-new
  
  .PHONY: install-man
  install-man:
--	$(INSTALL) -D -m 644 -o root -g root man/vlock.1 $(DESTDIR)$(PREFIX)/share/man/man1/vlock.1
--	$(INSTALL) -D -m 644 -o root -g root man/vlock-current.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-current.8
--	$(INSTALL) -D -m 644 -o root -g root man/vlock-all.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-all.8
--	$(INSTALL) -D -m 644 -o root -g root man/vlock-new.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-new.8
--	$(INSTALL) -D -m 644 -o root -g root man/vlock-nosysrq.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-nosysrq.8
-+	$(INSTALL) -D -m 644 man/vlock.1 $(DESTDIR)$(PREFIX)/share/man/man1/vlock.1
-+	$(INSTALL) -D -m 644 man/vlock-current.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-current.8
-+	$(INSTALL) -D -m 644 man/vlock-all.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-all.8
-+	$(INSTALL) -D -m 644 man/vlock-new.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-new.8
-+	$(INSTALL) -D -m 644 man/vlock-nosysrq.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-nosysrq.8
+-	$(INSTALL) -D -m 644 -o root -g $(ROOT_GROUP) man/vlock.1 $(DESTDIR)$(PREFIX)/share/man/man1/vlock.1
+-	$(INSTALL) -D -m 644 -o root -g $(ROOT_GROUP) man/vlock-current.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-current.8
+-	$(INSTALL) -D -m 644 -o root -g $(ROOT_GROUP) man/vlock-all.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-all.8
+-	$(INSTALL) -D -m 644 -o root -g $(ROOT_GROUP) man/vlock-new.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-new.8
+-	$(INSTALL) -D -m 644 -o root -g $(ROOT_GROUP) man/vlock-nosysrq.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-nosysrq.8
++	$(INSTALL) -D -m 644  man/vlock.1 $(DESTDIR)$(PREFIX)/share/man/man1/vlock.1
++	$(INSTALL) -D -m 644  man/vlock-current.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-current.8
++	$(INSTALL) -D -m 644  man/vlock-all.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-all.8
++	$(INSTALL) -D -m 644  man/vlock-new.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-new.8
++	$(INSTALL) -D -m 644  man/vlock-nosysrq.8 $(DESTDIR)$(PREFIX)/share/man/man8/vlock-nosysrq.8
  
  .PHONY: clean
  clean:

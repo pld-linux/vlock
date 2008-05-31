@@ -1,15 +1,12 @@
---- vlock-2.1/src/vlock-current.c.orig	2007-09-08 20:04:25.000000000 +0200
-+++ vlock-2.1/src/vlock-current.c	2007-09-10 20:02:41.075740768 +0200
-@@ -117,10 +117,12 @@
+--- vlock-2.2.2/src/vlock-main.c.orig	2008-05-18 11:10:54.000000000 +0200
++++ vlock-2.2.2/src/vlock-main.c	2008-05-31 14:04:33.852180049 +0200
+@@ -172,7 +172,8 @@
        sleep(1);
  
  #ifndef NO_ROOT_PASS
-+    if (geteuid() == 0) { /* checking root password with PAM needs suid-root */
-     if (auth("root", timeout_p))
-       break;
-     else
-       sleep(1);
-+    }
- #endif
-   }
- 
+-    if (strcmp(username, "root") != 0) {
++    if ((strcmp(username, "root") != 0)
++	&& (geteuid() == 0)) { /* checking root password with PAM needs suid-root */
+       /* Try authentication as root. */
+       if (auth("root", prompt_timeout))
+         break;

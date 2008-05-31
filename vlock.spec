@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	caca	# don't build libcaca-based screensaver module
+#
 Summary:	Locks one or more virtual consoles
 Summary(de.UTF-8):	Sperrt eine oder mehrere virtuelle Konsolen
 Summary(es.UTF-8):	Bloquea una o más consolas virtuales
@@ -9,17 +13,21 @@ Summary(tr.UTF-8):	Sanal konsol kilitleme aracı
 Summary(uk.UTF-8):	Закриває одну чи більше консолей від несанкціонованого доступу
 Summary(zh_CN.UTF-8):	一个能够锁定一个或多个虚拟终端的程序
 Name:		vlock
-Version:	2.1
+Version:	2.2.2
 Release:	1
 License:	GPL v2
 Group:		Applications/Console
 Source0:	http://cthulhu.c3d2.de/~toidinamai/vlock/archive/%{name}-%{version}.tar.bz2
-# Source0-md5:	4dffc0e73c3b4f8b16271c5600a3206f
+# Source0-md5:	0b26703c0aa3a9ae67bb90b9373a3b88
 Source1:	%{name}.pamd
 Patch0:		%{name}-rootpw.patch
 Patch1:		%{name}-linking.patch
 URL:		http://cthulhu.c3d2.de/~toidinamai/vlock/vlock.html
 BuildRequires:	pam-devel >= 0.77.3
+%if %{with caca}
+BuildRequires:	libcaca-devel >= 0.99
+BuildRequires:	ncurses-devel
+%endif
 Requires:	pam >= 0.77.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -89,26 +97,50 @@ vlock блокує або поточний термінал (що може бу�
 Розблокування відбувається шляхом вводу пароля користувача, що
 запустив vlock, чи пароля root.
 
+%package caca
+Summary:	libcaca-based screensaver module for vlock
+Summary(pl.UTF-8):	Moduł wygaszacza ekranu opartego na libcaca dla vlocka
+Group:		Applications/Console
+Requires:	%{name} = %{version}-%{release}
+
+%description caca
+libcaca-based screensaver module for vlock.
+
+%description caca -l pl.UTF-8
+Moduł wygaszacza ekranu opartego na libcaca dla vlocka.
+
 %prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
 
 %build
-%{__make} \
+# not autoconf-generated
+./configure \
 	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags} -Wall -W -pedantic -std=gnu99%{?with_caca: -I/usr/include/ncurses}" \
 	LDFLAGS="%{rpmldflags}" \
-	CFLAGS="%{rpmcflags}" \
-	AUTH_METHOD=pam \
-	PREFIX=/usr
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
+	--mandir=%{_mandir} \
+	--with-modules="all.so new.so nosysrq.so ttyblank.so vesablank.so%{?with_caca: caca.so}" \
+	--with-scripts="alsa_mute.sh amarok.sh hibernate.sh mplayer.sh \
+%ifarch %{ix86} %{x8664}
+	thinkpad_light.sh \
+%endif
+%ifarch ppc
+	powerbook_backlight.sh \
+%endif
+	"
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/etc/pam.d
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	PREFIX=/usr
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/pam.d/%{name}
 
@@ -117,14 +149,27 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog README SECURITY
+%doc ChangeLog PLUGINS README README.X11 SECURITY TODO
 %config(noreplace) %verify(not md5 mtime size) /etc/pam.d/%{name}
 %attr(755,root,root) %{_bindir}/vlock
-%attr(755,root,root) %{_sbindir}/vlock-all
-# needs suid root to support unlock by root password
-%attr(755,root,root) %verify(not mode) %{_sbindir}/vlock-current
-# two following need suid root to function, but should be limited to trusted users
-%attr(755,root,root) %verify(not mode) %{_sbindir}/vlock-new
-%attr(755,root,root) %verify(not mode) %{_sbindir}/vlock-nosysrq
+# should have suid root for some functions (unlocking by root password, new or nosysrq modules)
+# but should be limited to trusted users
+%attr(755,root,root) %verify(not mode) %{_sbindir}/vlock-main
+%dir %{_libdir}/vlock
+%dir %{_libdir}/vlock/modules
+%attr(755,root,root) %{_libdir}/vlock/modules/all.so
+%attr(755,root,root) %{_libdir}/vlock/modules/new.so
+%attr(755,root,root) %{_libdir}/vlock/modules/nosysrq.so
+%attr(755,root,root) %{_libdir}/vlock/modules/ttyblank.so
+%attr(755,root,root) %{_libdir}/vlock/modules/vesablank.so
+%dir %{_libdir}/vlock/scripts
+%attr(755,root,root) %{_libdir}/vlock/scripts/*
 %{_mandir}/man1/vlock.1*
-%{_mandir}/man8/vlock-*.8*
+%{_mandir}/man5/vlock-plugins.5*
+%{_mandir}/man8/vlock-main.8*
+
+%if %{with caca}
+%files caca
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/vlock/modules/caca.so
+%endif

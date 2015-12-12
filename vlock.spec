@@ -14,7 +14,7 @@ Summary(uk.UTF-8):	Закриває одну чи більше консолей 
 Summary(zh_CN.UTF-8):	一个能够锁定一个或多个虚拟终端的程序
 Name:		vlock
 Version:	2.2.3
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/Console
 Source0:	http://cthulhu.c3d2.de/~toidinamai/vlock/archive/%{name}-%{version}.tar.bz2

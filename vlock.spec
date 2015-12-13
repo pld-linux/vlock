@@ -17,11 +17,13 @@ Version:	2.2.3
 Release:	3
 License:	GPL v2
 Group:		Applications/Console
+# dead URL, now sources are available at: https://github.com/WorMzy/vlock
 Source0:	http://cthulhu.c3d2.de/~toidinamai/vlock/archive/%{name}-%{version}.tar.bz2
 # Source0-md5:	2dd5677c97f2707db62532ae24f58433
 Source1:	%{name}.pamd
 Patch0:		%{name}-rootpw.patch
 Patch1:		%{name}-linking.patch
+Patch2:		%{name}-caca.patch
 URL:		http://cthulhu.c3d2.de/~toidinamai/vlock/vlock.html
 BuildRequires:	pam-devel >= 0.77.3
 %if %{with caca}
@@ -113,6 +115,7 @@ Moduł wygaszacza ekranu opartego na libcaca dla vlocka.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 # not autoconf-generated
